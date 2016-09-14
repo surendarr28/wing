@@ -19,7 +19,6 @@ class Server {
     config() {
         global.path = __dirname;
         this.app.use(bodyParser.json());
-        this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(function (err, req, res, next) {
             var error = new Error("Not Found");
             err.status = 404;
@@ -28,7 +27,9 @@ class Server {
     }
 
     routes() {
-        routes.bootstrap(this.app, express);
+        let router = express.Router();
+        let apiRoute = routes.bootstrap(this.app, express, router).init;
+        this.app.use(apiRoute);
     }
 
     listening() {
