@@ -1,7 +1,12 @@
+const host = "127.0.0.1";
+const user = "root";
+const password = "Ss9715261931!";
+const database = "wings";
+
 module.exports = {
-    HOST: "127.0.0.1",
-    USER: "root",
-    PASSWORD: "Ss9715261931!",
-    DATABASE: "wings",
-    CONNECTION_STRING: "mysql://" + this.USER + ":" + this.PASSWORD + "@" + this.PASSWORD + ":3306/" + this.DATABASE,
+    HOST: host,
+    USER: user,
+    PASSWORD: password,
+    DATABASE: database,
+    CONNECTION_STRING: "mysql://" + user + ":" + password + "@" + host + ":3306/" + database,
 }

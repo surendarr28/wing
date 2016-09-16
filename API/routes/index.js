@@ -1,14 +1,19 @@
 "use strict";
 const controllers = require("../controllers/index");
-const home = require("./home");
-const about = require("./about");
 
 class Route {
     constructor(app, express, router) {
         this.init = null;
-        let homeRoute = home.bootstrap(controllers.home, router).home();
-        let aboutRoute = about.bootstrap(controllers.about, router).about();
-        this.init = Object.assign(homeRoute, aboutRoute);
+        this.home = controllers.home;
+        this.about = controllers.about;
+        this.init = this.routing(router);
+    }
+
+    routing(router) {
+        router.get("/", this.home.getHome.bind(this.home.getHome));
+        router.get("/home", this.home.getHome.bind(this.home.getHome));
+        router.get("/about", this.about.getAbout.bind(this.about.getAbout));
+        return router
     }
 
     static bootstrap(app, express, router) {
