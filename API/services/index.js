@@ -2,7 +2,7 @@
 
 const home = require("./home");
 const about = require("./about");
-const DB = require("./db");
+const DB = require("../models/db");
 
 class Service extends DB {
     constructor() {

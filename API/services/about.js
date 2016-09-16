@@ -21,7 +21,6 @@ class About {
                     console.log('Unable to connect to the database:', err);
                     res.send('ABOUT Unable to connect to the database:');
                 });
-
         }
     }
 
