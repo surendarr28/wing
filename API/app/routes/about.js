@@ -1,17 +1,18 @@
 "use strict";
 
 class About {
-    constructor(app, express, controllers, router) {
-        this.init = this.about(app, express, controllers, router);
+    constructor(controllers, router) {
+        this.controllers = controllers;
+        this.router = router;
     }
 
-    about(app, express, controllers, router) {
-        router.get("/about", controllers.init.bind(controllers.init));
-        return router;
+    about() {
+        this.router.get("/about", this.controllers.getAbout.bind(this.controllers.getAbout));
+        return this.router;
     }
 
-    static bootstrap(app, express, controllers, router) {
-        return new About(app, express, controllers, router);
+    static bootstrap(controllers, router) {
+        return new About(controllers, router);
     }
 }
 

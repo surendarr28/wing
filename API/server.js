@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const path = require("path");
 const routes = require("./app/routes/index");
+const service = require("./app/services/index");
 
 class Server {
     constructor() {
@@ -30,6 +31,7 @@ class Server {
         let router = express.Router();
         let apiRoute = routes.bootstrap(this.app, express, router).init;
         this.app.use(apiRoute);
+        service.bootstrap();
     }
 
     listening() {

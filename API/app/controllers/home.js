@@ -1,34 +1,14 @@
 "use strict";
+const service = require("../services/index");
 
-class HomeController {
+class HomeController extends service {
     constructor() {
+        super()
     }
 
-    getHome() {
-        return function (req, res, next) {
-            res.send("home");
-
-        }
-    }
-
-    postHome() {
-        return function (req, res, next) {
-            res.send("home");
-        }
-    }
-
-    putHome() {
-        return function (req, res, next) {
-            res.send("home");
-        }
-    }
-
-    deleteHome() {
-        return function (req, res, next) {
-            res.send("home");
-        }
+    get getHome() {
+        return this.home.serviceHome;
     }
 }
-
 
 module.exports = new HomeController();

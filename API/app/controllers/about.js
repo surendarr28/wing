@@ -1,14 +1,13 @@
 "use strict";
+const service = require("../services/index");
 
-class AboutController {
+class AboutController extends service {
     constructor() {
-        this.init = this.about();
+        super()
     }
 
-    about() {
-        return function (req, res, next) {
-            res.send("about");
-        }
+    get getAbout() {
+        return this.about.serviceAbout;
     }
 }
 module.exports = new AboutController();
