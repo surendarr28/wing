@@ -20,6 +20,14 @@ module.exports = {
           key: 'iGameId'
         }
       },
+      iUserId: {
+        type: DataTypes.INTEGER(11),
+        allowNull: true,
+        references: {
+          model: 'tbl_users',
+          key: 'iUserId'
+        }
+      },
       iCreatedBy: {
         type: DataTypes.INTEGER(11),
         allowNull: true

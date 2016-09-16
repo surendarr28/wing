@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('tbl_members', {
     iMemberId: {
       type: DataTypes.INTEGER(11),
@@ -16,9 +16,13 @@ module.exports = function(sequelize, DataTypes) {
         key: 'iContestId'
       }
     },
-    iUnitId: {
+    iUserId: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'tbl_users',
+        key: 'iUserId'
+      }
     },
     iCreatedBy: {
       type: DataTypes.INTEGER(11),
@@ -41,6 +45,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'tbl_members'
-  });
+      tableName: 'tbl_members'
+    });
 };

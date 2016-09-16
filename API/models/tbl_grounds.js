@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('tbl_grounds', {
     iGroundId: {
       type: DataTypes.INTEGER(11),
@@ -18,6 +18,14 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'tbl_games',
         key: 'iGameId'
+      }
+    },
+    iUserId: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+      references: {
+        model: 'tbl_users',
+        key: 'iUserId'
       }
     },
     iCreatedBy: {
@@ -49,6 +57,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'tbl_grounds'
-  });
+      tableName: 'tbl_grounds'
+    });
 };

@@ -15,6 +15,14 @@ module.exports = {
         type: DataTypes.BOOLEAN,
         allowNull: true
       },
+      iContestId: {
+        type: DataTypes.INTEGER(11),
+        allowNull: true,
+        references: {
+          model: 'tbl_contests',
+          key: 'iContestId'
+        }
+      },
       iCreatedBy: {
         type: DataTypes.INTEGER(11),
         allowNull: true
