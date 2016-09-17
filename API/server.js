@@ -4,13 +4,19 @@ const express = require("express");
 const path = require("path");
 const routes = require("./routes/index");
 const service = require("./services/index");
+const socketIo = require('socket.io');
+const http = require('http');
 
 class Server {
     constructor() {
+        this.apiRoute;
         this.app = express();
+        this.server = http.Server(this.app);
+        this.io = socketIo(this.server);
         this.config();
         this.routes();
         this.listening();
+        this.socket();
     }
 
     static bootstrap() {
@@ -29,15 +35,20 @@ class Server {
 
     routes() {
         let router = express.Router();
-        let apiRoute = routes.bootstrap(this.app, express, router).init;
-        this.app.use(apiRoute);
+        this.apiRoute = routes.bootstrap(this.app, express, router);
+        this.app.use(this.apiRoute.init);
         service.bootstrap();
+       
     }
 
     listening() {
-        this.app.listen(8085, function () {
+        this.server.listen(8085, function () {
             console.log('Listening on port ' + 8085);
         });
+    }
+
+    socket() {
+        this.apiRoute.socketNamespace(this.io);
     }
 }
 var server = Server.bootstrap();

@@ -8,5 +8,6 @@ module.exports = {
     USER: user,
     PASSWORD: password,
     DATABASE: database,
-    CONNECTION_STRING: "mysql://" + user + ":" + password + "@" + host + ":3306/" + database,
+    //CONNECTION_STRING: "mysql://" + user + ":" + password + "@" + host + ":3306/" + database,
+    CONNECTION_STRING: "mysql://" + user + "@" + host + ":3306/" + database,
 }
