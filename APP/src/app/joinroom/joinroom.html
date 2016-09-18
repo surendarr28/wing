@@ -1,9 +1,18 @@
 <h3>About Component</h3>
-<p>This is the about component!</p>
-<input type="text" placeholder="room number" [(ngModel)]="room"/>
-<input type="button" value="join" (click)="join()"/>
+<p>This is the about sdfsdfcomponent!</p>
+<input type="text" placeholder="room number" [(ngModel)]="room" />
+<input type="button" value="join" (click)="join()" />
 <div>
 
 </div>
-<input type="text" placeholder="chat" [(ngModel)]="message"/>
-<input type="button" value="send" (click)="clicked()"/>
+<input type="text" placeholder="chat" [(ngModel)]="message" />
+<input type="button" value="send" (click)="clicked()" />
+<nav>
+    <a [routerLink]="['/about/sample']">
+    Home
+  </a> |
+    <a [routerLink]="['/about/sample1']">
+    About
+  </a>
+</nav>
+<router-outlet></router-outlet>

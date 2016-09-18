@@ -2,8 +2,8 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const path = require("path");
-const routes = require("./routes/index");
-const service = require("./services/index");
+const routes = require("./API/routes/index");
+const service = require("./API/services/index");
 const socketIo = require('socket.io');
 const http = require('http');
 
@@ -24,8 +24,10 @@ class Server {
     }
 
     config() {
+
         global.path = __dirname;
         this.app.use(bodyParser.json());
+        this.app.use(express.static(global.path + '/APP/src'));
         this.app.use(function (err, req, res, next) {
             var error = new Error("Not Found");
             err.status = 404;
@@ -38,7 +40,7 @@ class Server {
         this.apiRoute = routes.bootstrap(this.app, express, router);
         this.app.use(this.apiRoute.init);
         service.bootstrap();
-       
+
     }
 
     listening() {

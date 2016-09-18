@@ -7,12 +7,17 @@ import {BrowserModule} from "@angular/platform-browser";
 import {HttpModule} from "@angular/http";
 import {JoinRoom} from './joinroom/joinroom';
 import {Dashboard} from './dashboard/dashboard';
-import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import {Sample} from './joinroom/sample/sample';
+import {SampleOne} from './joinroom/sample1/sample1';
+import {LoginComponent} from './login/login';
+import { AuthGuard } from './app.authguard';
+
 
 @NgModule({
-  declarations: [AppComponent, JoinRoom, Dashboard],
-  imports     : [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig)],
-  bootstrap   : [AppComponent]
+  declarations: [AppComponent, JoinRoom, Dashboard, Sample, SampleOne, LoginComponent],
+  imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig)],
+  providers: [AuthGuard],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 

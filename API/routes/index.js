@@ -10,9 +10,12 @@ class Route {
     }
 
     routing(router) {
-        router.get("/", this.generate(this.home.getHome));
-        router.get("/home", this.generate(this.home.getHome));
-        router.get("/about", this.generate(this.about.getAbout));
+        let apiPrefix = "/api/v1/"
+        router.get(apiPrefix + "getdashboard", this.generate(this.home.getHome));
+        router.get(apiPrefix + "getjoinroom", this.generate(this.about.getAbout));
+        router.get("**", function (req, res) {
+            res.sendFile(global.path + "/APP/src/index.html");
+        });
         return router
     }
 

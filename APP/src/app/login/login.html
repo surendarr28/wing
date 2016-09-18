@@ -1,0 +1,28 @@
+<div class="login-continer">
+    <div class="login-panel card-3" [class.login-panel-reg]="isRegistration">
+        <div>
+            <div class="form-block">
+                <label class="form-lable">username</label>
+                <input class="form-input" type="text" placeholder="username" />
+            </div>
+            <div class="form-block">
+                <label class="form-lable">password</label>
+                <input class="form-input" type="password" placeholder="password" />
+            </div>
+            <div class="form-block" [class.hidden-block]="!isRegistration" [class.show-block]="isRegistration">
+                <label class="form-lable">email</label>
+                <input class="form-input" type="text" placeholder="Email" />
+            </div>
+            <div class="form-btn-continer">
+                <input type="button" *ngIf="!isRegistration" class="form-btn" value="login" />
+                <button class="form-btn" *ngIf="isRegistration" (click)="toggleRegistration(false)">
+                    <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                </button>
+                <input type="button" *ngIf="isRegistration" class="form-btn warning-btn" value="register" />
+                <button class="form-btn warning-btn" *ngIf="!isRegistration" (click)="toggleRegistration(true)">
+                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
