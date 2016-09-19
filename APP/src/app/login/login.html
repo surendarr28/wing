@@ -3,22 +3,22 @@
         <div>
             <div class="form-block">
                 <label class="form-lable">username</label>
-                <input class="form-input" type="text" placeholder="username" />
+                <input class="form-input" type="text" [(ngModel)]="username" placeholder="username" />
             </div>
             <div class="form-block">
                 <label class="form-lable">password</label>
-                <input class="form-input" type="password" placeholder="password" />
+                <input class="form-input" type="password" [(ngModel)]="password" placeholder="password" />
             </div>
             <div class="form-block" [class.hidden-block]="!isRegistration" [class.show-block]="isRegistration">
                 <label class="form-lable">email</label>
-                <input class="form-input" type="text" placeholder="Email" />
+                <input class="form-input" type="text" [(ngModel)]="email" placeholder="Email" />
             </div>
             <div class="form-btn-continer">
-                <input type="button" *ngIf="!isRegistration" class="form-btn" value="login" />
+                <input type="button" *ngIf="!isRegistration" class="form-btn" value="login" (click)="login()" />
                 <button class="form-btn" *ngIf="isRegistration" (click)="toggleRegistration(false)">
                     <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
                 </button>
-                <input type="button" *ngIf="isRegistration" class="form-btn warning-btn" value="register" />
+                <input type="button" *ngIf="isRegistration" class="form-btn warning-btn" value="register" (click)="registration()" />
                 <button class="form-btn warning-btn" *ngIf="!isRegistration" (click)="toggleRegistration(true)">
                     <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                 </button>

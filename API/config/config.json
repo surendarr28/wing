@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Ss9715261931!",
+    "password": null,
     "database": "wings",
     "host": "127.0.0.1",
     "dialect": "mysql"
