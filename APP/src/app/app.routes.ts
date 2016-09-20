@@ -8,13 +8,13 @@ import { AuthGuard } from './app.authguard';
 
 export const rootRouterConfig: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: Dashboard, canActivate: [AuthGuard], },
+  { path: 'home', component: Dashboard },
   {
     path: 'about', component: JoinRoom, canActivate: [AuthGuard],
     children: [
-      { path: 'sample', component: Sample, canActivate: [AuthGuard], },
-      { path: 'sample1', component: SampleOne, canActivate: [AuthGuard], },
-      { path: '', component: Sample, canActivate: [AuthGuard], }
+      { path: 'sample', component: Sample },
+      { path: 'sample1', component: SampleOne },
+      { path: '', component: Sample }
     ]
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },

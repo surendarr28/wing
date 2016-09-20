@@ -20,6 +20,10 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: true
       },
+      vcEmail: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       dtDOB: {
         type: DataTypes.DATE,
         allowNull: true
@@ -34,19 +38,23 @@ module.exports = {
       },
       createdBy: {
         type: DataTypes.INTEGER(11),
-        allowNull: false
+        allowNull: false,
+        defaultValue: 1
       },
       updatedBy: {
         type: DataTypes.INTEGER(11),
-        allowNull: false
+        allowNull: false,
+        defaultValue: 1
       },
       dtCreatedAt: {
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: false,
+        defaultValue: DataTypes.NOW
       },
       dtUpdatedAt: {
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: false,
+        defaultValue: DataTypes.NOW
       }
     });
   },

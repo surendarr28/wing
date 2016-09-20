@@ -1,7 +1,7 @@
-const home = require("./home");
-const about = require("./about");
+const auth = require("./auth");
+const dashboard = require("./dashboard");
 
 module.exports = {
-    home: home,
-    about: about
+    auth: auth,
+    dashboard: dashboard
 }

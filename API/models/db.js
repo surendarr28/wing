@@ -1,10 +1,9 @@
-"use strict";
+
 const CONFIG = require("../config/dbConfig");
 class DB {
     constructor() {
-        let Sequelize = require('sequelize');
-        console.log(CONFIG.CONNECTION_STRING);
-        this.database = new Sequelize(CONFIG.CONNECTION_STRING, {
+        this.Sequelize = require('sequelize');
+        this.database = new this.Sequelize(CONFIG.CONNECTION_STRING, {
             define: {
                 timestamps: false
             }

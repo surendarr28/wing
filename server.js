@@ -1,4 +1,4 @@
-"use strict";
+
 const bodyParser = require("body-parser");
 const express = require("express");
 const path = require("path");
@@ -6,6 +6,9 @@ const routes = require("./API/routes/index");
 const service = require("./API/services/index");
 const socketIo = require('socket.io');
 const http = require('http');
+const expressJwt = require('express-jwt');
+const APP_CONFIG = require("./API/config/appConfig");
+const jwtLib = require("./API/handler/jwtlib");
 
 class Server {
     constructor() {
@@ -24,7 +27,6 @@ class Server {
     }
 
     config() {
-
         global.path = __dirname;
         this.app.use(bodyParser.json());
         this.app.use(express.static(global.path + '/APP/src'));
@@ -33,6 +35,12 @@ class Server {
             err.status = 404;
             next(err);
         });
+        this.app.use(APP_CONFIG.ROUTE.PREFIX,
+            expressJwt({ secret: APP_CONFIG.JWT_SECRET_KEY })
+                .unless({ path: [APP_CONFIG.ROUTE.AUTH_URL.LOGIN, APP_CONFIG.ROUTE.AUTH_URL.REGISTRATION] }));
+
+        this.app.use(function (err, req, res, next) { jwtLib.errorVerification(err, req, res, next); });
+        this.app.use(function (req, res, next) { jwtLib.beforeVerfication(req, res, next); });
     }
 
     routes() {

@@ -1,14 +1,15 @@
-"use strict";
 
-const home = require("./home");
-const about = require("./about");
 const DB = require("../models/db");
+
+const auth = require("./auth");
+const dashboard = require("./dashboard");
+
 
 class Service extends DB {
     constructor() {
         super();
-        this.home = home.bootstrap(this.database);
-        this.about = about.bootstrap(this.database);
+        this.auth = auth.bootstrap(this.database, this.Sequelize);
+        this.dashboard = dashboard.bootstrap(this.database, this.Sequelize);
     }
 
     static bootstrap() {

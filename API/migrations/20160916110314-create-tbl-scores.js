@@ -25,19 +25,23 @@ module.exports = {
       },
       iCreatedBy: {
         type: DataTypes.INTEGER(11),
-        allowNull: true
+        allowNull: true,
+        defaultValue: 1
       },
       iUpdatedBy: {
         type: DataTypes.INTEGER(11),
-        allowNull: true
+        allowNull: true,
+        defaultValue: 1
       },
       dtCreatedAt: {
         type: DataTypes.DATE,
-        allowNull: true
+        allowNull: true,
+        defaultValue: DataTypes.NOW
       },
       dtUpdatedAt: {
         type: DataTypes.DATE,
-        allowNull: true
+        allowNull: true,
+        defaultValue: DataTypes.NOW
       },
       iMemberId: {
         type: DataTypes.INTEGER(11),

@@ -1,22 +1,24 @@
-"use strict";
+
 const controllers = require("../controllers/index");
 
 class Route {
     constructor(app, express, router) {
-        this.init = null;
-        this.home = controllers.home;
-        this.about = controllers.about;
+        this.auth = controllers.auth;
+        this.dashboard = controllers.dashboard;
+        this.apiPrefix = "/api/v1/";
         this.init = this.routing(router);
     }
 
     routing(router) {
-        let apiPrefix = "/api/v1/"
-        router.get(apiPrefix + "getdashboard", this.generate(this.home.getHome));
-        router.get(apiPrefix + "getjoinroom", this.generate(this.about.getAbout));
+        router.post(this.apiPrefix + "registration", this.generate(this.auth.Registration));
+        router.post(this.apiPrefix + "login", this.generate(this.auth.Login));
+        router.get(this.apiPrefix + "dashboard", this.generate(this.dashboard.Dashboard));
+
         router.get("**", function (req, res) {
             res.sendFile(global.path + "/APP/src/index.html");
         });
-        return router
+        
+        return router;
     }
 
     socketNamespace(io) {
@@ -26,15 +28,14 @@ class Route {
                 console.log(data);
             });
         });
+
         io.of("/score").on('connection', function (socket) {
             socket.on('join', function (data) {
-                socket.join(data.room);
-                socket.in(data.room).emit('news', { hello: 'worldssss' });
-                socket.in(data.room).on('chat', function (data) {
-                    socket.in(data.room).emit('message', data);
+                socket.emit('news', { hello: 'worldssss' });
+                socket.on('chat', function (data) {
+                    socket.emit('message', data);
                 });
             });
-
         });
     }
 

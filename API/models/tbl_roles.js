@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('tbl_roles', {
     iRoleId: {
       type: DataTypes.INTEGER(11),
@@ -22,21 +22,25 @@ module.exports = function(sequelize, DataTypes) {
     },
     iCreatedBy: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
+      allowNull: true,
+      defaultValue: 1
     },
     iUpdatedBy: {
       type: DataTypes.INTEGER(11),
-      allowNull: true
+      allowNull: true,
+      defaultValue: 1
     },
     dtCreatedAt: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
+      defaultValue: DataTypes.NOW
     },
     dtUpdatedAt: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
+      defaultValue: DataTypes.NOW
     }
   }, {
-    tableName: 'tbl_roles'
-  });
+      tableName: 'tbl_roles'
+    });
 };

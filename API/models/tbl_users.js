@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('tbl_users', {
     iUserId: {
       type: DataTypes.INTEGER(11),
@@ -20,6 +20,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
+    vcEmail: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     dtDOB: {
       type: DataTypes.DATE,
       allowNull: true
@@ -34,21 +38,25 @@ module.exports = function(sequelize, DataTypes) {
     },
     createdBy: {
       type: DataTypes.INTEGER(11),
-      allowNull: false
+      allowNull: false,
+      defaultValue: 1
     },
     updatedBy: {
       type: DataTypes.INTEGER(11),
-      allowNull: false
+      allowNull: false,
+      defaultValue: 1
     },
     dtCreatedAt: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
+      defaultValue: DataTypes.NOW
     },
     dtUpdatedAt: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
+      defaultValue: DataTypes.NOW
     }
   }, {
-    tableName: 'tbl_users'
-  });
+      tableName: 'tbl_users'
+    });
 };

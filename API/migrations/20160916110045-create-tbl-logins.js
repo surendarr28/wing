@@ -22,11 +22,13 @@ module.exports = {
       },
       iCreatedBy: {
         type: DataTypes.INTEGER(11),
-        allowNull: true
+        allowNull: true,
+        defaultValue: 1
       },
       iUpdatedBy: {
         type: DataTypes.INTEGER(11),
-        allowNull: true
+        allowNull: true,
+        defaultValue: 1
       },
       iUserId: {
         type: DataTypes.INTEGER(11),
@@ -38,11 +40,13 @@ module.exports = {
       },
       dtCreatedAt: {
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: false,
+        defaultValue: DataTypes.NOW
       },
       dtUpdatedAt: {
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: false,
+        defaultValue: DataTypes.NOW
       }
     });
   },
