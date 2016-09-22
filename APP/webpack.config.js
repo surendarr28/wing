@@ -6,12 +6,16 @@ var path = require('path');
 var webpackConfig = {
   entry: {
     'polyfills': './src/polyfills.browser.ts',
-    'vendor':    ['./src/vendor.browser.ts',"./node_modules/socket.io-client"],
-    'main':       './src/main.browser.ts',
+    'vendor': ['./src/vendor.browser.ts', "./node_modules/socket.io-client"],
+    'main': './src/main.browser.ts',
   },
 
   output: {
     path: './src',
+  },
+  devtool: '#source-map',
+  resolve: {
+    extensions: ['', '.ts', '.js'],
   },
 
   plugins: [
@@ -43,7 +47,7 @@ var defaultConfig = {
   },
 
   resolve: {
-    root: [ path.join(__dirname, 'src') ],
+    root: [path.join(__dirname, 'src')],
     extensions: ['', '.ts', '.js']
   },
 

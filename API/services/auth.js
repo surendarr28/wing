@@ -21,7 +21,7 @@ class AuthService {
                         error: data,
                         result: null
                     };
-                    res.send(result);
+                    res.status(422).send(result);
                 } else {
                     // register user.
                     self.AddUser({ vcEmail: req.body.vcEmail }, (user) => {
@@ -124,7 +124,7 @@ class AuthService {
                         error: error,
                         result: null
                     };
-                    res.send(result);
+                    res.status(422).send(result);
                 } else {
                     self.GetLogin({ vcUsername: req.body.vcUsername, vcPassword: md5(req.body.vcPassword) }, function (userData) {
                         if (userData) {

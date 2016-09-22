@@ -13,11 +13,17 @@ import {LoginComponent} from './login/login';
 import { AuthGuard } from './app.authguard';
 import { HttpServices } from './shared/services/httpService';
 import { Config } from './config/config';
+import {ToastModule, ToastOptions} from 'ng2-toastr/ng2-toastr';
 
+let options = <ToastOptions>{
+  animate: 'flyRight',
+  positionClass: 'toast-bottom-right',
+  toastLife: 100000
+};
 
 @NgModule({
   declarations: [AppComponent, JoinRoom, Dashboard, Sample, SampleOne, LoginComponent],
-  imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig)],
+  imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig), ToastModule.forRoot(options)],
   providers: [AuthGuard, HttpServices, Config],
   bootstrap: [AppComponent]
 })

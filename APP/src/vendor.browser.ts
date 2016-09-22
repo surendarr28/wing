@@ -6,6 +6,7 @@ import '@angular/platform-browser';
 import '@angular/core';
 import '@angular/http';
 import '@angular/router';
+import 'ng2-toastr/ng2-toastr';
 // RxJS 5
 // import 'rxjs/Rx';
 
