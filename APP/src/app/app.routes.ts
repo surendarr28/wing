@@ -10,7 +10,7 @@ export const rootRouterConfig: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: Dashboard },
   {
-    path: 'about', component: JoinRoom, canActivate: [AuthGuard],
+    path: 'join', component: JoinRoom, canActivate: [AuthGuard],
     children: [
       { path: 'sample', component: Sample },
       { path: 'sample1', component: SampleOne },

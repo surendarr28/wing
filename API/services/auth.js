@@ -27,10 +27,12 @@ class AuthService {
                     self.AddUser({ vcEmail: req.body.vcEmail }, (user) => {
                         // add login data.
                         self.AddLogin({ vcUsername: req.body.vcUsername, vcPassword: md5(req.body.vcPassword), iUserId: user.iUserId }, (login) => {
-                            user.dataValues.vcUsername = login.vcUsername;
+                            delete login.dataValues.vcPassword;
+                            login.dataValues.tbl_user = user;
+                            login.dataValues.regToken = true;
                             var result = {
                                 error: [],
-                                result: user
+                                result: jwtLib.generateToken(login.dataValues)
                             };
                             res.send(result);
                         });
@@ -111,9 +113,17 @@ class AuthService {
     get Login() {
         let self = this;
         let init = function (req, res, next) {
+            var error = [];
+            error = self.validation.requireValidationLogin(req.body);
+            if (error.length > 0) {
+                var result = {
+                    error: error,
+                    result: null
+                };
+                res.status(422).send(result);
+            }
             self.CheckUsername(req.body.vcUsername, function (count) {
                 if (count == 0) {
-                    var error = [];
                     var data = {
                         code: 2005,
                         message: "username not available."
@@ -128,13 +138,13 @@ class AuthService {
                 } else {
                     self.GetLogin({ vcUsername: req.body.vcUsername, vcPassword: md5(req.body.vcPassword) }, function (userData) {
                         if (userData) {
+                            userData.dataValues.regToken = false;
                             var result = {
                                 error: [],
                                 result: jwtLib.generateToken(userData.dataValues)
                             };
                             res.send(result);
                         } else {
-                            var error = [];
                             var data = {
                                 code: 2006,
                                 message: "Password is incorrect."
@@ -145,7 +155,7 @@ class AuthService {
                                 error: error,
                                 result: null
                             };
-                            res.send(result);
+                            res.status(422).send(result);
                         }
                     })
                 }

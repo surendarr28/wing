@@ -18,7 +18,7 @@ import {ToastModule, ToastOptions} from 'ng2-toastr/ng2-toastr';
 let options = <ToastOptions>{
   animate: 'flyRight',
   positionClass: 'toast-bottom-right',
-  toastLife: 100000
+  toastLife: 5000
 };
 
 @NgModule({

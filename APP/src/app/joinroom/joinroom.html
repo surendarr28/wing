@@ -1,19 +1,68 @@
-<!--<h3>About Component</h3>
-<p>This is the about sdfsdfcomponent!</p>
-<input type="text" placeholder="room number" [(ngModel)]="room" />
-<input type="button" value="join" (click)="join()" />
-<div>
+<div style="overflow:hidden;">
+    <div class="col-lg-4 col-lg-push-4 join-room-continer card-3">
+        <div class="dash-team-info card-2">
+            <label class="dash-heading">Team name</label>
+            <label class="dash-subheader">5 members | </label>
+            <label class="dash-subheader">focus | </label>
+            <label class="dash-subheader">education</label>
+            <div style="margin-top: 10px;">
+                <div class="member-logo card-2">
+                </div>
+                <label class="dash-subheader member-name">Mr. Surendar</label>
+            </div>
+        </div>
+        <div class="member-continer ">
+            <div style="display:block; width:100%; vertical-align: middle;">
+                <div style="vertical-align: middle;">
 
+                    <label class="score-lable">00</label>
+                </div>
+            </div>
+        </div>
+        <div style="padding-bottom:15px;     height: 200px;    overflow: auto;    margin-bottom: 15px;">
+            <div class="joiner-list">
+                <div class="joiner-right-content">
+                    <div class="member-logo card-2">
+                    </div>
+                    <label class="dash-subheader member-name-join">Mr. Surendar</label>
+                </div>
+                <div class="joiner-status ">
+                    status
+                </div>
+            </div>
+            <div class="joiner-list">
+                <div class="joiner-right-content">
+                    <div class="member-logo card-2">
+                    </div>
+                    <label class="dash-subheader member-name-join">Mr. Surendar</label>
+                </div>
+                <div class="joiner-status ">
+                    status
+                </div>
+            </div>
+            <div class="joiner-list">
+                <div class="joiner-right-content">
+                    <div class="member-logo card-2">
+                    </div>
+                    <label class="dash-subheader member-name-join">Mr. Surendar</label>
+                </div>
+                <div class="joiner-status ">
+                    status
+                </div>
+            </div>
+            <div class="joiner-list">
+                <div class="joiner-right-content">
+                    <div class="member-logo card-2">
+                    </div>
+                    <label class="dash-subheader member-name-join">Mr. Surendar</label>
+                </div>
+                <div class="joiner-status ">
+                    status
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<input type="text" placeholder="chat" [(ngModel)]="message" />
-<input type="button" value="send" (click)="clicked()" />
-<nav>
-    <a [routerLink]="['/about/sample']">
-    Home
-  </a> |
-    <a [routerLink]="['/about/sample1']">
-    About
-  </a>
-</nav>-->
-Join
-<router-outlet></router-outlet>
+<div>
+    <router-outlet></router-outlet>
+</div>
