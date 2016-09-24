@@ -1,0 +1,135 @@
+.game-center-contines {
+    text-align: center;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+}
+
+.piller-lable {
+    line-height: 50px;
+}
+
+.piller-cells {
+    width: 50px;
+    height: 50px;
+    background-color: #f01;
+    border: 2px solid #000;
+    color: #fff;
+    position: absolute;
+}
+
+.right-cell-event {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+}
+
+.left-cell-event {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+}
+
+.left-cell-ans {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.right-cell-ans {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.answer-cell {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: gray;
+}
+
+.mark-cell {
+    background-color: transparent;
+    color: #000;
+}
+
+.cell-one {
+    background-color: green;
+    color: #fff;
+}
+
+.cell-two {
+    background-color: yellow;
+    color: #000;
+}
+
+@keyframes left--move {
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(-200px, 0, 200px);
+        transform: translate3d(-200px, 0, 200px);
+    }
+}
+
+.left-move {
+    animation: left--move 0.5s;
+}
+
+@keyframes right--move {
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(200px, 0, 200px);
+        transform: translate3d(200px, 0, 200px);
+    }
+}
+
+.right-move {
+    animation: right--move 0.5s;
+}
+
+@keyframes error--move {
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -200px, 200px);
+        transform: translate3d(0, -200px, 200px);
+    }
+}
+
+.error-move {
+    animation: error--move 0.5s;
+}
+
+@keyframes left--move-no {
+    to {
+        -webkit-transform: translate3d(-200px, 0, 200px);
+        transform: translate3d(-200px, 0, 200px);
+    }
+}
+
+.left-move-no {
+    animation: left--move-no 0.5s;
+}
+
+@keyframes right--move-no {
+    to {
+        -webkit-transform: translate3d(200px, 0, 200px);
+        transform: translate3d(200px, 0, 200px);
+    }
+}
+
+.right-move-no {
+    animation: right--move-no 0.5s;
+}
+
+@keyframes error--move-no {
+    to {
+        -webkit-transform: translate3d(0, -200px, 200px);
+        transform: translate3d(0, -200px, 200px);
+    }
+}
+
+.error-move-no {
+    animation: error--move-no 0.5s;
+    color: #f01;
+}

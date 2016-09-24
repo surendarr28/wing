@@ -1,0 +1,34 @@
+<div class="game-center-contines">
+    <div *ngFor="let item of pipeArray; let i = index;">
+        <div class="piller-cells" [style.z-index]="20-i" [style.top.px]="item.styles.top" [class.cell-two]="item.value == 'A'" [class.cell-one]="item.value == 'B'">
+            <label class="piller-lable">{{item.value}}</label>
+        </div>
+        <div class="piller-cells answer-cell" [style.z-index]="19" [style.top.px]="item.styles.top" *ngIf="i == 0" [class.error-move]="i == 0 && errorChange"
+            [class.right-move]="i == 0 && rightChange" [class.left-move]="i == 0 && leftChange">
+            <label class="piller-lable">{{item.value}}</label>
+        </div>
+        <div class="piller-cells mark-cell" [style.z-index]="19" [style.top.px]="item.styles.top" *ngIf="i == 0" [class.error-move-no]="i == 0 && errorChange"
+            [class.right-move-no]="i == 0 && rightChange" [class.left-move-no]="i == 0 && leftChange">
+            <label class="piller-lable"><span *ngIf="errorChange">-5</span> <span *ngIf="!errorChange">+10</span></label>
+        </div>
+    </div>
+</div>
+<!--<div class="piller-cells left-cell-event ">
+    <label class="piller-lable">Left</label>
+</div>
+
+<div class="piller-cells right-cell-event">
+    <label class="piller-lable">Right</label>
+</div>
+
+<div class="piller-cells left-cell-ans">
+    <label class="piller-lable">A</label>
+</div>
+
+<div class="piller-cells right-cell-ans">
+    <label class="piller-lable">B</label>
+</div>-->
+
+<div *ngFor="let item of pipeArray; let i = index;">
+    {{item.value}}
+</div>

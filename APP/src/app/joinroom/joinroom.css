@@ -4,7 +4,7 @@
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: #8BC34A;
+    background-color: #E6EE9C;
     color: #fff;
 }
 
@@ -38,7 +38,7 @@
 
 .member-continer {
     overflow: auto;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .member-name {
@@ -55,6 +55,19 @@
 
 .score-lable {
     font-size: 120px;
+    padding: 10px;
+    background-color: #4CAF50;
+    line-height: 1;
+    border-radius: 10px;
+}
+
+.list-score-lable {
+    font-size: 15px;
+    padding: 10px;
+    background-color: #4CAF50;
+    line-height: 1;
+    border-radius: 10px;
+    color: #fff;
 }
 
 .member-name-side {
@@ -69,7 +82,6 @@
     display: inline-block;
     height: 40px;
     width: 40px;
-    vertical-align: middle;
     border-radius: 100%;
     margin-right: 10px;
     vertical-align: middle;
@@ -78,23 +90,41 @@
     background-size: 100% 100%;
 }
 
+.top-member-logo {
+    margin: 0 auto 10px auto;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-image: url('../../images/placeholder.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 .joiner-list {
-    background-color:#f5f5f5;     
-    margin-bottom: 10px;   
-    text-align: left; 
-    padding: 10px; 
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    text-align: left;
+    padding: 10px;
+    color: #000;
+}
+
+.joiner-list:last-child {
+    background-color: #f5f5f5;
+    margin-bottom: 0;
+    text-align: left;
+    padding: 10px;
     color: #000;
 }
 
 .joiner-right-content {
-     width: 60%; 
-     vertical-align: middle; 
-     display: inline-block; 
+    width: 60%;
+    vertical-align: middle;
+    display: inline-block;
 }
 
 .joiner-status {
-    width: 38%; 
-    vertical-align: middle;    
+    width: 38%;
+    vertical-align: middle;
     display: inline-block;
     text-align: right;
 }

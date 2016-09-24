@@ -1,0 +1,100 @@
+.ground-continer {
+    padding-top: 10px;
+}
+
+.game-title-header {
+    background:#f5f5f5;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.game-continer {
+    height: 80vh;
+    background:#f5f5f5;
+    position: relative;
+}
+
+.ground-left {
+    height: 90vh;
+    width: 70%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ground-right {
+    height: 90vh;
+    overflow: auto;
+    width: 28%;
+    display: inline-block;
+    border-left: 2px solid #000;
+    vertical-align: top;
+}
+
+.top-score-list {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 0;
+}
+
+.game-timer {
+    text-align: center;
+    font-size: 46px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.game-score {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.list-score-lable {
+    font-size: 15px;
+    padding: 10px;
+    background-color: #4CAF50;
+    line-height: 1;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.member-logo {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    margin-right: 10px;
+    vertical-align: middle;
+    background-image: url('../../images/placeholder.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.joiner-list {
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    text-align: left;
+    padding: 10px;
+    color: #000;
+}
+
+.joiner-list:last-child {
+    background-color: #f5f5f5;
+    margin-bottom: 0;
+    text-align: left;
+    padding: 10px;
+    color: #000;
+}
+
+.joiner-right-content {
+    width: 60%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.joiner-status {
+    width: 38%;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: right;
+}

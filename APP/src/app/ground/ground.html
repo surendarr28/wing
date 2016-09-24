@@ -1,0 +1,77 @@
+<div class="ground-continer">
+    <div class="ground-left">
+
+        <div class="game-title-header">
+            <div class="col-lg-2">
+                <div>
+                    <label class="top-score-list">300 - Surendar</label>
+                    <label class="top-score-list">200 - Surendar</label>
+                    <label class="top-score-list">100 - Surendar</label>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div style="text-align: center;">
+                    <label class="game-timer">{{timer}}</label>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div style="text-align: right;">
+                    <label class="game-score">{{score}}</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-continer">
+            <FocusGame *ngIf="timer != 'completed'" (scoreUpdate)="scoreUpdate($event)"></FocusGame>
+            <div *ngIf="timer == 'completed'">
+                <div style="text-align: center;">
+                    <label class="game-timer">completed</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="ground-right">
+        <div class="joiner-list">
+            <div class="joiner-right-content">
+                <div class="member-logo card-2">
+                </div>
+                <label class="dash-subheader member-name-join">Mr. Surendar</label>
+            </div>
+            <div class="joiner-status ">
+                <label class="list-score-lable">00</label>
+            </div>
+        </div>
+
+        <div class="joiner-list">
+            <div class="joiner-right-content">
+                <div class="member-logo card-2">
+                </div>
+                <label class="dash-subheader member-name-join">Mr. Surendar</label>
+            </div>
+            <div class="joiner-status ">
+                <label class="list-score-lable">00</label>
+            </div>
+        </div>
+        <div class="joiner-list">
+            <div class="joiner-right-content">
+                <div class="member-logo card-2">
+                </div>
+                <label class="dash-subheader member-name-join">Mr. Surendar</label>
+            </div>
+            <div class="joiner-status ">
+                <label class="list-score-lable">00</label>
+            </div>
+        </div>
+        <div class="joiner-list">
+            <div class="joiner-right-content">
+                <div class="member-logo card-2">
+                </div>
+                <label class="dash-subheader member-name-join">Mr. Surendar</label>
+            </div>
+            <div class="joiner-status ">
+                <label class="list-score-lable">00</label>
+            </div>
+        </div>
+    </div>
+</div>

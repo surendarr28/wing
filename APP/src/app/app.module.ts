@@ -7,13 +7,13 @@ import {BrowserModule} from "@angular/platform-browser";
 import {HttpModule} from "@angular/http";
 import {JoinRoom} from './joinroom/joinroom';
 import {Dashboard} from './dashboard/dashboard';
-import {Sample} from './joinroom/sample/sample';
-import {SampleOne} from './joinroom/sample1/sample1';
 import {LoginComponent} from './login/login';
+import {Ground} from './ground/ground';
 import { AuthGuard } from './app.authguard';
 import { HttpServices } from './shared/services/httpService';
 import { Config } from './config/config';
 import {ToastModule, ToastOptions} from 'ng2-toastr/ng2-toastr';
+import {FocusGame} from './shared/components/games/focus/focus';
 
 let options = <ToastOptions>{
   animate: 'flyRight',
@@ -22,7 +22,7 @@ let options = <ToastOptions>{
 };
 
 @NgModule({
-  declarations: [AppComponent, JoinRoom, Dashboard, Sample, SampleOne, LoginComponent],
+  declarations: [AppComponent, JoinRoom, Dashboard, LoginComponent, Ground, FocusGame],
   imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig), ToastModule.forRoot(options)],
   providers: [AuthGuard, HttpServices, Config],
   bootstrap: [AppComponent]
