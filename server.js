@@ -29,6 +29,7 @@ class Server {
     config() {
         global.path = __dirname;
         this.app.use(bodyParser.json());
+        this.app.use(express.static(global.path + '/APP/dist'));
         this.app.use(express.static(global.path + '/APP/src'));
         this.app.use(function (err, req, res, next) {
             var error = new Error("Not Found");

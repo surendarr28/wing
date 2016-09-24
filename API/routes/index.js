@@ -15,7 +15,7 @@ class Route {
         router.get(this.apiPrefix + "dashboard", this.generate(this.dashboard.Dashboard));
 
         router.get("**", function (req, res) {
-            res.sendFile(global.path + "/APP/src/index.html");
+            res.sendFile(global.path + "/APP/dist/index.html");
         });
         
         return router;

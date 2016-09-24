@@ -27,7 +27,7 @@ export class JoinRoom {
     this.socket.emit('chat', { room: this.room, my: this.message });
   }
 
-  join() {
-    this.socket.emit('join', { room: this.room });
-  }
+  // join() {
+  //   this.socket.emit('join', { room: this.room });
+  // }
 }

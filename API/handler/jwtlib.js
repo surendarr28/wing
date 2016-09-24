@@ -9,9 +9,11 @@ class JwtLib {
     jwtFetch(req) {
         try {
             var tokens = req.headers['authorization'];
-            var tokenArray = tokens.split(" ");
-            if (tokenArray && tokenArray.length > 1) {
-                return tokenArray[1].trim();
+            if (tokens) {
+                var tokenArray = tokens.split(" ");
+                if (tokenArray && tokenArray.length > 1) {
+                    return tokenArray[1].trim();
+                }
             }
         } catch (e) {
             console.log("fetch", e);
