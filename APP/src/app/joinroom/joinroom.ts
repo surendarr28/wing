@@ -15,6 +15,7 @@ export class JoinRoom {
   private room: string = '222';
   constructor() {
     this.socket = io('http://localhost:8085/score');
+    this.socket.emit('join', { room: this.room });
     this.socket.on('message', function (data) {
       console.log(data);
     });

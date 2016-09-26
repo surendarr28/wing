@@ -1,76 +1,28 @@
 <div class="dashboard-continer">
     <div class="col-lg-4 left-panel">
         <div class="dash-header">
-            Private
+            Quick Match
         </div>
-        <div class="dash-list-item card-1" [routerLink]="['/join']">
+        <div class="dash-list-item card-1" *ngFor="let item of gameQuickCards; let i = index;" (click)="goToJoinRoom(item)">
             <div class="dash-team-info ">
-                <label class="dash-heading">Team name</label>
-                <label class="dash-subheader">5 members | </label>
-                <label class="dash-subheader">focus | </label>
-                <label class="dash-subheader">education</label>
+                <label class="dash-heading">{{item.team}}</label>
+                <label class="dash-subheader">{{item.members}} members | </label>
+                <label class="dash-subheader">{{item.gameName}} | </label>
+                <label class="dash-subheader">{{item.gameCategory}}</label>
             </div>
             <div class="dash-ground-info">
                 <div class="dash-ground-score">
                     <label class="dash-empty-full"></label>
                     <label class="dash-empty-half"></label>
+                    <!--<label class="dash-player">sachin tendulkar</label>
+                    <label class="dash-score">Score: 50</label>-->
                 </div>
                 <div class="dash-ground-status">
-                    <div class="dash-ground-offline">
+                    <div *ngIf="item.status == 1" class="dash-ground-offline">
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="dash-list-item card-1" [routerLink]="['/join']">
-            <div class="dash-team-info ">
-                <label class="dash-heading">Team name</label>
-                <label class="dash-subheader">5 members | </label>
-                <label class="dash-subheader">focus | </label>
-                <label class="dash-subheader">education</label>
-            </div>
-            <div class="dash-ground-info">
-                <div class="dash-ground-score">
-                    <label class="dash-player">sachin tendulkar</label>
-                    <label class="dash-score">Score: 50</label>
-                </div>
-                <div class="dash-ground-status">
-                    <div class="dash-ground-live">
+                    <div *ngIf="item.status == 2" class="dash-ground-live">
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="dash-list-item card-1" [routerLink]="['/join']">
-            <div class="dash-team-info ">
-                <label class="dash-heading">Team name</label>
-                <label class="dash-subheader">5 members | </label>
-                <label class="dash-subheader">focus | </label>
-                <label class="dash-subheader">education</label>
-            </div>
-            <div class="dash-ground-info">
-                <div class="dash-ground-score">
-                    <label class="dash-empty-full"></label>
-                    <label class="dash-empty-half"></label>
-                </div>
-                <div class="dash-ground-status">
-                    <div class="dash-ground-waiting">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="dash-list-item card-1" [routerLink]="['/join']">
-            <div class="dash-team-info ">
-                <label class="dash-heading">Team name</label>
-                <label class="dash-subheader">5 members | </label>
-                <label class="dash-subheader">focus | </label>
-                <label class="dash-subheader">education</label>
-            </div>
-            <div class="dash-ground-info">
-                <div class="dash-ground-score">
-                    <label class="dash-empty-full"></label>
-                    <label class="dash-empty-half"></label>
-                </div>
-                <div class="dash-ground-status">
-                    <div class="dash-ground-offline">
+                    <div *ngIf="item.status == 3" class="dash-ground-waiting">
                     </div>
                 </div>
             </div>
@@ -78,15 +30,31 @@
     </div>
     <div class="col-lg-4 right-panel">
         <div class="dash-header">
-            Public
+            bet match
         </div>
-        <div class="dash-list-item">
-        </div>
-        <div class="dash-list-item">
-        </div>
-        <div class="dash-list-item">
-        </div>
-        <div class="dash-list-item">
+        <div class="dash-list-item card-1" *ngFor="let item of gameBetCards; let i = index;" (click)="goToJoinRoom(item)">
+            <div class="dash-team-info ">
+                <label class="dash-heading">{{item.team}}</label>
+                <label class="dash-subheader">{{item.members}} members | </label>
+                <label class="dash-subheader">{{item.gameName}} | </label>
+                <label class="dash-subheader">{{item.gameCategory}}</label>
+            </div>
+            <div class="dash-ground-info">
+                <div class="dash-ground-score">
+                    <label class="dash-empty-full"></label>
+                    <label class="dash-empty-half"></label>
+                    <!--<label class="dash-player">sachin tendulkar</label>
+                    <label class="dash-score">Score: 50</label>-->
+                </div>
+                <div class="dash-ground-status">
+                    <div *ngIf="item.status == 1" class="dash-ground-offline">
+                    </div>
+                    <div *ngIf="item.status == 2" class="dash-ground-live">
+                    </div>
+                    <div *ngIf="item.status == 3" class="dash-ground-waiting">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
