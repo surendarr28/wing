@@ -1,7 +1,7 @@
 declare var require: any
 const io = require('socket.io-client');
 
-import {Component} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import {Config} from '../config/config';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.css'],
   templateUrl: './dashboard.html'
 })
-export class Dashboard {
+export class Dashboard implements OnInit, OnDestroy {
   private gameCards: any;
   private gameQuickCards: any;
   private gameBetCards: any;
@@ -33,10 +33,18 @@ export class Dashboard {
     })
   }
 
+  ngOnInit() {
+  }
+
   goToJoinRoom(item) {
     item.status = 2;
     this.socket.emit('updatelist', item);
-    this.router.navigate(['/join']);
+    this.router.navigate(['/join', item.id]);
+  }
+
+  ngOnDestroy() {
+    console.log("disconn");
+    this.socket.disconnect();
   }
 }
 

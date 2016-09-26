@@ -14,6 +14,7 @@ import { HttpServices } from './shared/services/httpService';
 import { Config } from './config/config';
 import {ToastModule, ToastOptions} from 'ng2-toastr/ng2-toastr';
 import {FocusGame} from './shared/components/games/focus/focus';
+import { SortPipe } from './shared/pipes/sort';
 
 let options = <ToastOptions>{
   animate: 'flyRight',
@@ -22,7 +23,7 @@ let options = <ToastOptions>{
 };
 
 @NgModule({
-  declarations: [AppComponent, JoinRoom, Dashboard, LoginComponent, Ground, FocusGame],
+  declarations: [AppComponent, JoinRoom, Dashboard, LoginComponent, Ground, FocusGame, SortPipe],
   imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig), ToastModule.forRoot(options)],
   providers: [AuthGuard, HttpServices, Config],
   bootstrap: [AppComponent]

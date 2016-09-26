@@ -4,9 +4,6 @@
         <div class="game-title-header">
             <div class="col-lg-2">
                 <div>
-                    <label class="top-score-list">300 - Surendar</label>
-                    <label class="top-score-list">200 - Surendar</label>
-                    <label class="top-score-list">100 - Surendar</label>
                 </div>
             </div>
             <div class="col-lg-8">
@@ -24,53 +21,20 @@
         <div class="game-continer">
             <FocusGame *ngIf="timer != 'completed'" (scoreUpdate)="scoreUpdate($event)"></FocusGame>
             <div *ngIf="timer == 'completed'">
-                <div style="text-align: center;">
-                    <label class="game-timer">completed</label>
+                <div style="text-align: center;" (click)="refreshGame()">
+                    <label class="restartbtn">CLICK ME TO RESTART</label>
                 </div>
             </div>
         </div>
 
     </div>
     <div class="ground-right">
-        <div class="joiner-list">
+        <div class="joiner-list" *ngFor="let item of gameCare.members | sort; let i = index; ">
             <div class="joiner-right-content">
-                <div class="member-logo card-2">
-                </div>
-                <label class="dash-subheader member-name-join">Mr. Surendar</label>
+                <label class="dash-subheader member-name-join">{{item.username}}</label>
             </div>
             <div class="joiner-status ">
-                <label class="list-score-lable">00</label>
-            </div>
-        </div>
-
-        <div class="joiner-list">
-            <div class="joiner-right-content">
-                <div class="member-logo card-2">
-                </div>
-                <label class="dash-subheader member-name-join">Mr. Surendar</label>
-            </div>
-            <div class="joiner-status ">
-                <label class="list-score-lable">00</label>
-            </div>
-        </div>
-        <div class="joiner-list">
-            <div class="joiner-right-content">
-                <div class="member-logo card-2">
-                </div>
-                <label class="dash-subheader member-name-join">Mr. Surendar</label>
-            </div>
-            <div class="joiner-status ">
-                <label class="list-score-lable">00</label>
-            </div>
-        </div>
-        <div class="joiner-list">
-            <div class="joiner-right-content">
-                <div class="member-logo card-2">
-                </div>
-                <label class="dash-subheader member-name-join">Mr. Surendar</label>
-            </div>
-            <div class="joiner-status ">
-                <label class="list-score-lable">00</label>
+                <label class="list-score-lable">{{item.score}}</label>
             </div>
         </div>
     </div>

@@ -1,14 +1,14 @@
 <div style="overflow:hidden;">
     <div class="col-lg-4 col-lg-push-4 join-room-continer card-3">
         <div class="dash-team-info">
-            <label class="dash-heading">Team name</label>
-            <label class="dash-subheader">5 members | </label>
-            <label class="dash-subheader">focus | </label>
-            <label class="dash-subheader">education</label>
+            <label class="dash-heading">{{gameCare.gamedetail.team}}</label>
+            <label class="dash-subheader">{{gameCare.gamedetail.members}} members | </label>
+            <label class="dash-subheader">{{gameCare.gamedetail.gameName}} | </label>
+            <label class="dash-subheader">{{gameCare.gamedetail.gameCategory}}</label>
             <div style="margin-top: 10px;">
                 <div class="top-member-logo card-2">
                 </div>
-                <label class="dash-subheader member-name">Mr. Surendar</label>
+                <label class="dash-subheader member-name">{{userData.vcUsername}}</label>
             </div>
         </div>
         <div class="member-continer ">
@@ -18,51 +18,21 @@
                 </div>
             </div>
         </div>
-        <div style="padding-bottom:15px; height: 200px;  overflow: auto; margin-bottom: 15px;">
-            <div class="joiner-list">
+        <div style="padding-bottom:15px; max-height: 200px;  overflow: auto; margin-bottom: 15px;">
+            <div class="joiner-list" *ngFor="let item of gameCare.members | sort" >
                 <div class="joiner-right-content">
                     <div class="member-logo card-2">
                     </div>
-                    <label class="dash-subheader member-name-join">Mr. Surendar</label>
+                    <label class="dash-subheader member-name-join">{{item.username}}</label>
                 </div>
                 <div class="joiner-status ">
-                    <label class="list-score-lable">00</label>
-                </div>
-            </div>
-            <div class="joiner-list">
-                <div class="joiner-right-content">
-                    <div class="member-logo card-2">
-                    </div>
-                    <label class="dash-subheader member-name-join">Mr. Surendar</label>
-                </div>
-                <div class="joiner-status ">
-                    <label class="list-score-lable">00</label>
-                </div>
-            </div>
-            <div class="joiner-list">
-                <div class="joiner-right-content">
-                    <div class="member-logo card-2">
-                    </div>
-                    <label class="dash-subheader member-name-join">Mr. Surendar</label>
-                </div>
-                <div class="joiner-status ">
-                    <label class="list-score-lable">00</label>
-                </div>
-            </div>
-            <div class="joiner-list">
-                <div class="joiner-right-content">
-                    <div class="member-logo card-2">
-                    </div>
-                    <label class="dash-subheader member-name-join">Mr. Surendar</label>
-                </div>
-                <div class="joiner-status ">
-                    <label class="list-score-lable">00</label>
+                    <label class="list-score-lable">{{item.score}}</label>
                 </div>
             </div>
         </div>
 
         <div style="display:block; margin-bottom: 20px;">
-            <div class="card-2"  [routerLink]="['/gameground']" style="max-width: 200px; cursor:pointer; text-transform: uppercase; background-color: #4caf50; margin: 0 auto; padding: 10px;">
+            <div class="card-2" (click)="goToGround()" style="max-width: 200px; cursor:pointer; text-transform: uppercase; background-color: #4caf50; margin: 0 auto; padding: 10px;">
                 Start Playing...
             </div>
         </div>

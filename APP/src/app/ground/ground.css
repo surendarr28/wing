@@ -21,6 +21,13 @@
     vertical-align: top;
 }
 
+.restartbtn{
+    background-color: #f01;
+    color: #fff;
+    font-size: 30px;
+    padding: 10px;
+}
+
 .ground-right {
     height: 90vh;
     overflow: auto;
@@ -51,11 +58,15 @@
 
 .list-score-lable {
     font-size: 15px;
-    padding: 10px;
+    padding: 6px;
     background-color: #4CAF50;
     line-height: 1;
     border-radius: 10px;
     color: #fff;
+}
+
+.member-name-join {
+    text-transform: uppercase;
 }
 
 .member-logo {
@@ -74,7 +85,7 @@
     background-color: #f5f5f5;
     margin-bottom: 10px;
     text-align: left;
-    padding: 10px;
+        padding: 0 10px;
     color: #000;
 }
 

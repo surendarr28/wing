@@ -6,7 +6,6 @@
 }
 
 .login-panel {
-    text-transform: uppercase;
     padding: 20px;
     width: 300px;
     position: absolute;
@@ -78,6 +77,7 @@
 }
 
 .form-lable {
+    text-transform: uppercase;
     display: block;
     width: 100%;
     -webkit-transition: all 0.5s ease;
@@ -90,7 +90,6 @@
 .form-input {
     display: block;
     width: 100%;
-    text-transform: uppercase;
     padding: 8px 10px;
     font-size: 12px;
     margin-top: 4px;
@@ -102,6 +101,7 @@
 }
 
 .form-btn-continer {
+    text-transform: uppercase;
     display: block;
     text-align: center;
     margin-top: 5px;
@@ -114,6 +114,7 @@
 }
 
 .form-btn {
+    text-transform: uppercase;
     border: none;
     text-transform: uppercase;
     background-color: #8BC34A;
@@ -133,6 +134,7 @@
 }
 
 .warning-btn {
+    text-transform: uppercase;
     background-color: #f44336;
     color: #fff;
      -webkit-transition: all 0.5s ease;

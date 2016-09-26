@@ -9,10 +9,10 @@ export const rootRouterConfig: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: Dashboard },
   {
-    path: 'join', component: JoinRoom, canActivate: [AuthGuard]
+    path: 'join/:cardid', component: JoinRoom, canActivate: [AuthGuard]
   },
   {
-    path: 'gameground', component: Ground, canActivate: [AuthGuard]
+    path: 'gameground/:gameid', component: Ground, canActivate: [AuthGuard]
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

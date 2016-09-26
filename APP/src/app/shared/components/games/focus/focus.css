@@ -16,6 +16,7 @@
     border: 2px solid #000;
     color: #fff;
     position: absolute;
+    text-align: center;
 }
 
 .right-cell-event {
@@ -32,14 +33,17 @@
 
 .left-cell-ans {
     position: absolute;
-    top: 5px;
+    top: 50%;
     left: 5px;
+    background-color: yellow;
+    color: #000;
 }
 
 .right-cell-ans {
     position: absolute;
-    top: 5px;
+    top: 50%;
     right: 5px;
+    background-color: green;
 }
 
 .answer-cell {

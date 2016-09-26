@@ -6,6 +6,7 @@
     margin-bottom: 20px;
     background-color: #E6EE9C;
     color: #fff;
+    overflow: auto;
 }
 
 .dash-team-info {

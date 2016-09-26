@@ -25,13 +25,6 @@ export class FocusGame {
   
 
   constructor() {
-    this.socket = io('http://localhost:8085/score');
-    this.socket.on('message', function (data) {
-      console.log(data);
-    });
-    this.socket.on('news', function (data) {
-      console.log(data);
-    });
     let self = this;
     var left = 0;
     var top = 0
