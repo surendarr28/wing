@@ -1,4 +1,4 @@
-<div class="game-center-contines">
+<div class="game-center-contines" *ngIf="timer != 'completed'">
     <div *ngFor="let item of pipeArray; let i = index;">
         <div class="piller-cells" [style.z-index]="20-i" [style.top.px]="item.styles.top" [class.cell-two]="item.value == 'A'" [class.cell-one]="item.value == 'B'">
             <label class="piller-lable">{{item.value}}</label>
@@ -14,10 +14,22 @@
     </div>
 </div>
 
-<div class="piller-cells left-cell-ans">
+<div *ngIf="intervelTimer != 0">
+    <div style="text-align: center;">
+        <label class="restartbtn">Start in {{intervelTimer}} S</label>
+    </div>
+</div>
+
+<div class="piller-cells left-cell-ans" *ngIf="timer != 'completed'">
     <label class="piller-lable">A</label>
 </div>
 
-<div class="piller-cells right-cell-ans">
+<div class="piller-cells right-cell-ans" *ngIf="timer != 'completed'">
     <label class="piller-lable">B</label>
+</div>
+
+<div *ngIf="timer == 'completed'">
+    <div style="text-align: center;" (click)="refreshGame()">
+        <label class="restartbtn">Restart</label>
+    </div>
 </div>

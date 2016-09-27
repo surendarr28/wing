@@ -20,7 +20,7 @@ export class Ground implements OnInit, OnDestroy {
   private score: number = 0;
   private left: number = 0;
   private right: number = 0;
-  private timer: any = "20:00";
+  private timer: any = "";
   private jwtHelper: JwtHelper = new JwtHelper();
   private userData: any;
   private gameCare: any;
@@ -62,11 +62,11 @@ export class Ground implements OnInit, OnDestroy {
     self.score = scoreData.score;
     self.left = scoreData.left;
     self.right = scoreData.right;
-    self.socket.emit('updateScore', {
-      id: self.grounId,
-      userId: self.userData.iUserId,
-      action: scoreData.action
-    });
+    // self.socket.emit('updateScore', {
+    //   id: self.grounId,
+    //   userId: self.userData.iUserId,
+    //   action: scoreData.action
+    // });
   }
 
   timeUpdate(timeData) {

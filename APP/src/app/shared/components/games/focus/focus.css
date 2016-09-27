@@ -137,3 +137,10 @@
     animation: error--move-no 0.5s;
     color: #f01;
 }
+
+.restartbtn{
+    background-color: #f01;
+    color: #fff;
+    font-size: 30px;
+    padding: 10px;
+}

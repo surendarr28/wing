@@ -158,18 +158,21 @@ class Route {
             })
 
             socket.on('updateScore', function (data) {
-
-                game.forEach((findGame) => {
-                    if (findGame.id == data.id) {
-                        findGame.members.forEach((findMember) => {
-                            if (findMember.userId == data.userId) {
-                                findMember.score = gameaction(data);
-                            }
-                        });
-                        socket.emit('sendgamecard', findGame);
-                        socket.broadcast.emit('sendgamecard', findGame);
-                    }
+                var score = gameaction(data, function (scores) {
+                    game.forEach((findGame) => {
+                        if (findGame.id == data.id) {
+                            findGame.members.forEach((findMember) => {
+                                if (findMember.userId == data.userId) {
+                                    findMember.score = scores;
+                                }
+                            });
+                            socket.emit('sendgamecard', findGame);
+                            socket.broadcast.emit('sendgamecard', findGame);
+                        }
+                    });
                 });
+                console.log(score, data.action)
+
             });
 
             socket.on('getstack', function (data) {
@@ -180,7 +183,7 @@ class Route {
                     top += 10;
                     left += 10;
                     var vvValue = ['A', 'B'][Math.floor(Math.random() * 2)];
-                    var data = {
+                    var stackData = {
                         value: vvValue,
                         styles: {
                             top: top,
@@ -189,10 +192,8 @@ class Route {
                         index: i,
                         eClass: vvValue == "A" ? "cell-two" : "cell-one"
                     }
-                    pipeArray.push(data);
+                    pipeArray.push(stackData);
                 }
-
-                socket.emit('sendstack', pipeArray);
 
                 var dataUpdateStatus = false;
                 userStacks.forEach((element) => {
@@ -204,19 +205,15 @@ class Route {
                 })
 
                 if (!dataUpdateStatus) {
-                    var data = {
+                    var createUser = {
                         id: userStacks.length + 1,
                         userId: data.userId,
                         stack: pipeArray,
-                        score: 0,
-                        left: 0,
-                        top: 0,
-                        rightChange: false,
-                        errorChange: false,
-                        leftChange: false
+                        score: 0
                     }
-                    userStacks.push(data);
+                    userStacks.push(createUser);
                 }
+                socket.emit('sendstack', pipeArray);
             });
 
 
@@ -239,9 +236,78 @@ class Route {
                         }
                     }
                     tick();
-                } 
+                }
                 countdown(data.minute);
             })
+
+            function gameaction(data, cb) {
+                var currentUserStatck = userStacks.filter((user) => {
+                    return user.userId == data.userId;
+                })
+                var score = 0;
+                switch (data.action) {
+                    case 'left':
+                        console.log("left");
+                        var vvValue = ['A', 'B'][Math.floor(Math.random() * 2)];
+                        var userStackData = {
+                            value: vvValue,
+                            styles: {
+                                top: 0,
+                                left: 0,
+                            },
+                            index: 9,
+                            eClass: vvValue == "A" ? "cell-two" : "cell-one"
+                        }
+
+                        userStacks.forEach((user) => {
+                            if (user.userId == data.userId) {
+                                user.stack.push(userStackData);
+                                var rmData = user.stack.splice(0, 1);
+                                if (rmData[0].value == "A") {
+                                    user.score += 10;
+                                    socket.emit('updateStack', { value: user.stack, action: 'left', status: true, score: user.score });
+                                } else {
+                                    user.score -= 5;
+                                    socket.emit('updateStack', { value: user.stack, action: 'left', status: false, score: user.score });
+                                }
+                                cb(user.score);
+                            }
+                        })
+
+                        break;
+                    case 'right':
+                        console.log("right");
+                        var vvValue = ['A', 'B'][Math.floor(Math.random() * 2)];
+                        var userStackData = {
+                            value: vvValue,
+                            styles: {
+                                top: 0,
+                                left: 0,
+                            },
+                            index: 9,
+                            eClass: vvValue == "A" ? "cell-two" : "cell-one"
+                        }
+
+                        userStacks.forEach((user) => {
+                            if (user.userId == data.userId) {
+                                user.stack.push(userStackData);
+                                var rmData = user.stack.splice(0, 1);
+                                if (rmData[0].value == "B") {
+                                    user.score += 10;
+                                    socket.emit('updateStack', { value: user.stack, action: 'right', status: true, score: user.score});
+                                } else {
+                                    user.score -= 5;
+                                    socket.emit('updateStack', { value: user.stack, action: 'right', status: false, score: user.score});
+                                }
+
+                                cb(user.score);
+                            }
+                        })
+                        break;
+                }
+
+                return score;
+            }
         });
 
         function gameJoinManipulation(data, cb) {
@@ -279,56 +345,7 @@ class Route {
             }
         }
 
-        function gameaction(data) {
-            var currentUserStatck = userStacks.filter((user) => {
-                return user.userId == data.userId;
-            })
-            var score = 0;
-            switch (data.action) {
-                case 'left':
-                    var vvValue = ['A', 'B'][Math.floor(Math.random() * 2)];
-                    var data = {
-                        value: vvValue,
-                        index: 9,
-                    }
 
-                    userStacks.forEach((user) => {
-                        if (user.userId == data.userId) {
-                            user.stack.push(data);
-                            var rmData = user.stack.splice(0, 1);
-                            if (rmData[0].value == "A") {
-                                user.score += 10;
-                            } else {
-                                user.score -= 5;
-                            }
-                            score = user.score;
-                        }
-                    })
-                    break;
-                case 'right':
-                    var vvValue = ['A', 'B'][Math.floor(Math.random() * 2)];
-                    var data = {
-                        value: vvValue,
-                        index: 9,
-                    }
-
-                    userStacks.forEach((user) => {
-                        if (user.userId == data.userId) {
-                            user.stack.push(data);
-                            var rmData = user.stack.splice(0, 1);
-                            if (rmData[0].value == "B") {
-                                user.score += 10;
-                            } else {
-                                user.score -= 5;
-                            }
-                            score = user.score;
-                        }
-                    })
-                    break;
-            }
-
-            return score;
-        }
     }
 
     generate(params) {

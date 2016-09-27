@@ -19,12 +19,8 @@
         </div>
 
         <div class="game-continer">
-            <FocusGame *ngIf="timer != 'completed'" [socket]="socket" (scoreUpdate)="scoreUpdate($event)" (timeUpdate)="timeUpdate($event)"></FocusGame>
-            <div *ngIf="timer == 'completed'">
-                <div style="text-align: center;" (click)="refreshGame()">
-                    <label class="restartbtn">CLICK ME TO RESTART</label>
-                </div>
-            </div>
+            <FocusGame [socket]="socket" [grounId]="grounId" (scoreUpdate)="scoreUpdate($event)" (timeUpdate)="timeUpdate($event)"></FocusGame>
+           
         </div>
 
     </div>
