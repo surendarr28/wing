@@ -62,11 +62,12 @@ export class Ground implements OnInit, OnDestroy {
     self.score = scoreData.score;
     self.left = scoreData.left;
     self.right = scoreData.right;
-    // self.socket.emit('updateScore', {
-    //   id: self.grounId,
-    //   userId: self.userData.iUserId,
-    //   action: scoreData.action
-    // });
+    self.socket.emit('updateScore', {
+      id: self.grounId,
+      userId: self.userData.iUserId,
+      action: scoreData.action,
+      answare: scoreData.answare
+    });
   }
 
   timeUpdate(timeData) {
@@ -80,6 +81,12 @@ export class Ground implements OnInit, OnDestroy {
   }
 
   refreshGame() {
+    let self = this;
     this.timer = "";
+    self.socket.emit('updateScore', {
+      id: self.grounId,
+      userId: self.userData.iUserId,
+      action: 'reset'
+    });
   }
 }

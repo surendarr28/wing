@@ -158,22 +158,38 @@ class Route {
             })
 
             socket.on('updateScore', function (data) {
-                var score = gameaction(data, function (scores) {
-                    game.forEach((findGame) => {
-                        if (findGame.id == data.id) {
-                            findGame.members.forEach((findMember) => {
-                                if (findMember.userId == data.userId) {
-                                    findMember.score = scores;
+                game.forEach((findGame) => {
+                    if (findGame.id == data.id) {
+                        findGame.members.forEach((findMember) => {
+                            if (findMember.userId == data.userId) {
+                                if (data.action == 'reset') {
+                                    findMember.score = 0;
+                                } else {
+                                    if ((data.action == 'left' && data.answare == 'A') || (data.action == 'right' && data.answare == 'B')) {
+                                        findMember.score += 10;
+                                    } else {
+                                        findMember.score -= 5;
+                                    }
                                 }
-                            });
-                            socket.emit('sendgamecard', findGame);
-                            socket.broadcast.emit('sendgamecard', findGame);
-                        }
-                    });
+                            }
+                        });
+                        socket.emit('sendgamecard', findGame);
+                        socket.broadcast.emit('sendgamecard', findGame);
+                    }
                 });
-                console.log(score, data.action)
-
             });
+        });
+
+        io.of("/focus").on('connection', function (socket) {
+
+            socket.on('getground', function (data) {
+                game.forEach((findGame) => {
+                    if (findGame.id == data.id) {
+                        socket.emit('sendgamecard', findGame);
+                        socket.broadcast.emit('sendgamecard', findGame);
+                    }
+                });
+            })
 
             socket.on('getstack', function (data) {
                 var pipeArray = [];
@@ -294,10 +310,10 @@ class Route {
                                 var rmData = user.stack.splice(0, 1);
                                 if (rmData[0].value == "B") {
                                     user.score += 10;
-                                    socket.emit('updateStack', { value: user.stack, action: 'right', status: true, score: user.score});
+                                    socket.emit('updateStack', { value: user.stack, action: 'right', status: true, score: user.score });
                                 } else {
                                     user.score -= 5;
-                                    socket.emit('updateStack', { value: user.stack, action: 'right', status: false, score: user.score});
+                                    socket.emit('updateStack', { value: user.stack, action: 'right', status: false, score: user.score });
                                 }
 
                                 cb(user.score);
