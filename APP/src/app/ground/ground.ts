@@ -55,34 +55,7 @@ export class Ground implements OnInit, OnDestroy {
     self.socket.on('sendgamecard', function (data) {
       self.gameCare = data;
     })
-
-
-    self.countdown(1);
-
   }
-
-  countdown(minutes) {
-    let self = this;
-    var seconds = 60;
-    var mins = minutes
-    function tick() {
-      var current_minutes = mins - 1
-      seconds--;
-      self.timer =
-        current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
-      if (seconds > 0) {
-        setTimeout(tick, 1000);
-      } else {
-        if (mins > 1) {
-          setTimeout(function () { self.countdown(mins - 1); }, 1000);
-        } else {
-          self.timer = "completed";
-        }
-      }
-    }
-    tick();
-  }
-
 
   scoreUpdate(scoreData) {
     let self = this;
@@ -92,8 +65,13 @@ export class Ground implements OnInit, OnDestroy {
     self.socket.emit('updateScore', {
       id: self.grounId,
       userId: self.userData.iUserId,
-      score: self.score
+      action: scoreData.action
     });
+  }
+
+  timeUpdate(timeData) {
+    let self = this;
+    self.timer = timeData;
   }
 
   ngOnDestroy() {
@@ -103,6 +81,5 @@ export class Ground implements OnInit, OnDestroy {
 
   refreshGame() {
     this.timer = "";
-    this.countdown(1);
   }
 }
