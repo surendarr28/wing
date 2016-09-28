@@ -25,6 +25,7 @@ class Route {
         var gameCard = [
             {
                 id: 100,
+                gameid: 'focus',
                 team: "Quick Play - Red",
                 members: "10",
                 gameName: "focusing the block",
@@ -35,16 +36,18 @@ class Route {
             },
             {
                 id: 101,
-                team: "Quick Play - Green",
+                gameid: 'uno',
+                team: "Quick Play UNO - Green",
                 members: "5",
-                gameName: "focusing the block",
-                gameCategory: "focus",
+                gameName: "uno",
+                gameCategory: "card",
                 status: 1,
                 category: 1,
                 game: []
             },
             {
                 id: 102,
+                gameid: 'focus',
                 team: "Quick Play - Yellow",
                 members: "5",
                 gameName: "focusing the block",
@@ -55,6 +58,7 @@ class Route {
             },
             {
                 id: 103,
+                gameid: 'uno',
                 team: "Quick Play - blue",
                 members: "5",
                 gameName: "focusing the block",
@@ -65,6 +69,7 @@ class Route {
             },
             {
                 id: 200,
+                gameid: 'uno',
                 team: "Bet(10) - Red",
                 members: "10",
                 gameName: "focusing the block",
@@ -75,6 +80,7 @@ class Route {
             },
             {
                 id: 201,
+                gameid: 'uno',
                 team: "Bet(50) - Green",
                 members: "5",
                 gameName: "focusing the block",
@@ -85,6 +91,7 @@ class Route {
             },
             {
                 id: 202,
+                gameid: 'uno',
                 team: "Bet(60) - Yellow",
                 members: "5",
                 gameName: "focusing the block",
@@ -95,6 +102,7 @@ class Route {
             },
             {
                 id: 203,
+                gameid: 'uno',
                 team: "Bet(100) - blue",
                 members: "5",
                 gameName: "focusing the block",

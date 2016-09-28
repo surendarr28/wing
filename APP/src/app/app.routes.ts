@@ -12,7 +12,7 @@ export const rootRouterConfig: Routes = [
     path: 'join/:cardid', component: JoinRoom, canActivate: [AuthGuard]
   },
   {
-    path: 'gameground/:gameid', component: Ground, canActivate: [AuthGuard]
+    path: 'gameground/:gameid/:gamename', component: Ground, canActivate: [AuthGuard]
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

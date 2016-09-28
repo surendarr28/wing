@@ -26,6 +26,7 @@ export class JoinRoom implements OnInit, OnDestroy {
     self.gameCare = {
       gamedetail: {
         team: "",
+        gameid: "",
         members: "",
         gameName: "",
         gameCategory: ""
@@ -61,6 +62,6 @@ export class JoinRoom implements OnInit, OnDestroy {
   }
 
   goToGround() {
-    this.router.navigate(['/gameground', this.gameCare.id]);
+    this.router.navigate(['/gameground', this.gameCare.id, this.gameCare.gamedetail.gameid]);
   }
 }

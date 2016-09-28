@@ -8,7 +8,7 @@
             </div>
             <div class="col-lg-8">
                 <div style="text-align: center;">
-                    <label class="game-timer">{{timer}}</label>
+                    <label class="game-timer">{{timer}} {{gameName}}</label>
                 </div>
             </div>
             <div class="col-lg-2">
@@ -19,7 +19,8 @@
         </div>
 
         <div class="game-continer">
-            <FocusGame *ngIf="timer != 'completed'" [grounId]="grounId" (scoreUpdate)="scoreUpdate($event)" (timeUpdate)="timeUpdate($event)"></FocusGame>
+            <FocusGame *ngIf="timer != 'completed' && gameName =='focus'" [grounId]="gameID" (scoreUpdate)="scoreUpdate($event)" (timeUpdate)="timeUpdate($event)"></FocusGame>
+            <UnoGame></UnoGame>
             <div *ngIf="timer == 'completed'">
                 <div style="text-align: center;" (click)="refreshGame()">
                     <label class="restartbtn">Restart</label>

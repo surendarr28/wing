@@ -24,7 +24,8 @@ export class Ground implements OnInit, OnDestroy {
   private jwtHelper: JwtHelper = new JwtHelper();
   private userData: any;
   private gameCare: any;
-  private grounId: any;
+  private gameID: any;
+  private gameName: any;
 
   constructor(private route: ActivatedRoute, private _config: Config, private router: Router) {
     let self = this;
@@ -44,11 +45,12 @@ export class Ground implements OnInit, OnDestroy {
   ngOnInit() {
     let self = this;
     this.route.params.forEach((params: Params) => {
-      self.grounId = +params['gameid'];
+      self.gameID = +params['gameid'];
+      self.gameName = params['gamename'];
     });
 
     self.socket.emit('getground', {
-      id: self.grounId,
+      id: self.gameID,
       userId: self.userData.iUserId
     });
 
@@ -63,7 +65,7 @@ export class Ground implements OnInit, OnDestroy {
     self.left = scoreData.left;
     self.right = scoreData.right;
     self.socket.emit('updateScore', {
-      id: self.grounId,
+      id: self.gameID,
       userId: self.userData.iUserId,
       action: scoreData.action,
       answare: scoreData.answare
@@ -83,7 +85,7 @@ export class Ground implements OnInit, OnDestroy {
   refreshGame() {
     let self = this;
     self.socket.emit('updateScore', {
-      id: self.grounId,
+      id: self.gameID,
       userId: self.userData.iUserId,
       action: 'reset'
     });
