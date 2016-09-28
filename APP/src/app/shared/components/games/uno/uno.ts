@@ -135,7 +135,7 @@ export class UnoGame implements OnInit, OnDestroy {
         for (var i = 0; i < 4; i++) {
             var card = {
                 id: "n-" + colors[i].code + "-c0",
-                cardValue: i.toString(),
+                cardValue: "0",
                 cardColor: colors[i].color,
                 cardRules: [1, 2]
             }
