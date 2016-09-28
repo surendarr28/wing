@@ -82,11 +82,11 @@ export class Ground implements OnInit, OnDestroy {
 
   refreshGame() {
     let self = this;
-    this.timer = "";
     self.socket.emit('updateScore', {
       id: self.grounId,
       userId: self.userData.iUserId,
       action: 'reset'
     });
+    self.timer = "";
   }
 }
