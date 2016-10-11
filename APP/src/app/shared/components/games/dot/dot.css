@@ -1,0 +1,68 @@
+canvas {
+    border: 1px solid #d3d3d3;
+    background-color: #0e0e0e;
+    float: left;
+}
+
+.dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 10px;
+    background-color: #f01;
+    border-radius: 100%;
+}
+
+.canvas {
+    position: relative;
+    margin: 0 auto;
+}
+
+.dotboard {
+    padding: 10px;
+}
+
+.box {
+    height: 30px;
+    width: 30px;
+    background-color: green;
+    float: left;
+}
+
+.box-continer {
+    overflow: hidden;
+    float: left;
+}
+
+.box-continer:first-child::before {
+    content: " ";
+    width: 10px;
+    height: 30px;
+    background-color: #f01;
+    float: left;
+}
+
+.box-continer:first-child::before:hover {
+    content: " ";
+    width: 10px;
+    height: 30px;
+    background-color: yellow;
+    float: left;
+}
+
+.box-continer::after {
+    content: " ";
+    width: 10px;
+    height: 30px;
+    background-color: #f01;
+    float: left;
+}
+
+.box-continer::after:hover {
+    content: " ";
+    width: 10px;
+    height: 30px;
+    background-color: yellow;
+    float: left;
+}

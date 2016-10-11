@@ -15,6 +15,8 @@ import { Config } from './config/config';
 import {ToastModule, ToastOptions} from 'ng2-toastr/ng2-toastr';
 import {FocusGame} from './shared/components/games/focus/focus';
 import {UnoGame} from './shared/components/games/uno/uno';
+import {Car} from './shared/components/games/car/car';
+import {Dot} from './shared/components/games/dot/dot';
 import { SortPipe } from './shared/pipes/sort';
 
 let options = <ToastOptions>{
@@ -24,7 +26,7 @@ let options = <ToastOptions>{
 };
 
 @NgModule({
-  declarations: [AppComponent, JoinRoom, Dashboard, LoginComponent, Ground, FocusGame, SortPipe, UnoGame],
+  declarations: [AppComponent, JoinRoom, Dashboard, LoginComponent, Ground, FocusGame, SortPipe, UnoGame, Car, Dot],
   imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig), ToastModule.forRoot(options)],
   providers: [AuthGuard, HttpServices, Config],
   bootstrap: [AppComponent]

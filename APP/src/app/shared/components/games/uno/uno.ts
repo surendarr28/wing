@@ -2,6 +2,7 @@ declare var require: any;
 declare var $: any;
 const io = require('socket.io-client');
 
+
 import {Component, OnInit, OnDestroy, Pipe, PipeTransform, Output, Input, EventEmitter} from '@angular/core';
 import {JwtHelper} from 'angular2-jwt/angular2-jwt';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -36,11 +37,10 @@ export class UnoGame implements OnInit, OnDestroy {
         self.socket = io(self._config.SocketBaseUrl() + 'uno');
         self.userData = self.jwtHelper.decodeToken(localStorage.getItem('currentUser'));
         console.log(self);
-        this.deckCards = this.createCardStack();
+        //this.deckCards = this.createCardStack();
     }
 
     ngOnInit() {
-
     }
 
     createCardStack() {

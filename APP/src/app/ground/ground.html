@@ -20,7 +20,9 @@
 
         <div class="game-continer">
             <FocusGame *ngIf="timer != 'completed' && gameName =='focus'" [grounId]="gameID" (scoreUpdate)="scoreUpdate($event)" (timeUpdate)="timeUpdate($event)"></FocusGame>
-            <UnoGame></UnoGame>
+            <UnoGame *ngIf="gameName =='uno'"></UnoGame>
+            <Car *ngIf="gameName =='car'"></Car>
+            <Dot *ngIf="gameName =='dot'"></Dot>
             <div *ngIf="timer == 'completed'">
                 <div style="text-align: center;" (click)="refreshGame()">
                     <label class="restartbtn">Restart</label>
