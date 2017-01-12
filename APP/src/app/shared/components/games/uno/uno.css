@@ -141,3 +141,8 @@
     font-size: 30px;
     padding: 10px;
 }
+
+canvas {
+    border:1px solid #ccc;
+    background-color: #ccc;
+}

@@ -49,7 +49,6 @@ class Server {
         this.apiRoute = routes.bootstrap(this.app, express, router);
         this.app.use(this.apiRoute.init);
         service.bootstrap();
-
     }
 
     listening() {

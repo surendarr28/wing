@@ -369,7 +369,8 @@ class Route {
             }
         }
 
-
+        io.of("/chat").on('connection', function (socket) {
+        });
     }
 
     generate(params) {

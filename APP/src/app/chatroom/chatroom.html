@@ -1,0 +1,67 @@
+<div class="dashboard-continer">
+    <div class="col-lg-2 remove-padding" style="height:600px; overflow:auto; background-color:#fff;">
+        <div>
+        </div>
+        <div class="c-contact" *ngFor="let item of contactList; let i = index;">
+            <div class="c-contact-img">
+                <div class="c-contact-status-online" *ngIf="item.status == 'ONLINE'">
+                </div>
+                <div class="c-contact-status-offline" *ngIf="item.status == 'OFFLINE'">
+                </div>
+            </div>
+            <div style="float:left; margin-left:10px; ">
+                <div style="color:#8988a3; font-size:12px;">
+                    {{item.name}}
+                </div>
+                <div style="color:#c5c3d7; font-size:10px;">
+                    {{item.slogn}}
+                </div>
+            </div>
+
+            <div *ngIf="item.chatno" class="c-notification-tag">
+                {{item.chatno}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-10" style="height:600px; overflow:auto; background-color:#f6f6fc;">
+        <div style="overflow:hidden;">
+            <div id="messageContiner" style="height:518px; padding:10px 20px 10px 10px; overflow:auto; width: 102%;">
+                <div class="c-message-block" *ngFor="let item of messageList; let i = index;">
+                    <div [ngClass]="{'message-income': item.type == 1, 'message-outgoing': item.type == 2}">
+                        <div class="c-contact-img" [ngClass]="{'message-income': item.type == 1, 'message-outgoing': item.type == 2}">
+                        </div>
+                        <div class="c-chat-message" [ngClass]="{'c-incoming': (item.type == 1 && item.status != 0), 'c-outgoing': (item.type == 2 && item.status != 0), 'c-current': item.status == 0}">
+                            <p *ngIf="item.status != 0">
+                                {{item.message}}
+                            </p>
+                            <p *ngIf="item.status == 0">
+                                {{message ? message : item.message}}
+                            </p>
+                            <p *ngIf="item.status != 0">
+                                <span class="m-sender-name">{{item.from.display_name}}</span>
+                                <span class="m-sender-time">{{item.on}}</span>
+                                <span class="m-sender-time" *ngIf="item.status == 1">&#10004;</span>
+                                <span class="m-sender-time" *ngIf="item.status == 2">&#10008;</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="c-chat-input">
+            <div class="col-lg-11">
+                <textarea placeholder="Chat" [(ngModel)]="message" class="c-chat-text-area"></textarea>
+            </div>
+            <div class="col-lg-1">
+                <button (click)="sendMessage(message)">SEND</button>
+            </div>
+        </div>
+    </div>
+    <!--<div class="col-lg-5" style="height:600px; overflow:auto; background-color:#756ff1;">
+        <div style="height:550px;">
+        </div>
+        <div class="c-chat-input">
+        </div>
+    </div>-->
+</div>

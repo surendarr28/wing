@@ -7,6 +7,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {HttpModule} from "@angular/http";
 import {JoinRoom} from './joinroom/joinroom';
 import {Dashboard} from './dashboard/dashboard';
+import {ChatRoom} from './chatroom/chatroom';
 import {LoginComponent} from './login/login';
 import {Ground} from './ground/ground';
 import { AuthGuard } from './app.authguard';
@@ -24,7 +25,7 @@ let options = <ToastOptions>{
 };
 
 @NgModule({
-  declarations: [AppComponent, JoinRoom, Dashboard, LoginComponent, Ground, FocusGame, SortPipe, UnoGame],
+  declarations: [AppComponent, JoinRoom, Dashboard, LoginComponent, Ground, FocusGame, SortPipe, UnoGame, ChatRoom],
   imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig), ToastModule.forRoot(options)],
   providers: [AuthGuard, HttpServices, Config],
   bootstrap: [AppComponent]

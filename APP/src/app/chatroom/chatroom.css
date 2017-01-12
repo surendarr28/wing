@@ -1,0 +1,169 @@
+.dashboard-continer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+.remove-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.c-contact {
+    padding: 10px; 
+    overflow: hidden; 
+    position:relative;
+    background: #fff;
+    border-bottom: 2px solid #f6f6fc;
+    -webkit-transition: all 2s;
+    transition: all 2s;
+    cursor: pointer;
+}
+
+.c-contact:hover {
+    padding: 10px; 
+    overflow: hidden; 
+    position:relative;
+    background: #f6f6fc;
+    border-bottom: 2px solid #9191ea;
+    -webkit-transition: all 2s;
+    transition: all 2s;
+}
+
+.c-contact-img {
+    background-color:#f6f6fc; 
+    height:30px; 
+    width:30px; 
+    border-radius: 100px; 
+    float:left;
+    border: 3px solid #d5d5ea;
+    position: relative;
+}
+
+.c-contact-status-online {
+    background-color:yellowgreen; 
+    height:10px; 
+    width:10px; 
+    border-radius: 100px; 
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+}
+.c-contact-status-offline {
+    background-color:mediumvioletred; 
+    height:10px; 
+    width:10px; 
+    border-radius: 100px;
+    position: absolute;
+    bottom: -4px;
+    right: -4px; 
+}
+
+.c-notification-tag {
+    background-color: #756ff1;
+    border-radius: 100px;
+    position: absolute;
+    right: 5px;
+    top: 15px; 
+    color: #fff;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 9px;
+}
+
+.c-chat-input {
+    border-top: 2px solid #756ff1;
+    height:50px;
+}
+
+.c-chat-text-area {
+    border: 0;
+    width: 100%;
+    padding: 20px;
+    font-size: 12px;
+    resize: none;
+}
+
+.c-chat-text-area:focus {
+    outline: 0;
+}
+
+.c-message-block {
+    display: block;
+    clear: both;
+    margin-bottom: 15px;
+}
+
+.c-chat-message {
+    padding: 10px;
+    position: relative;
+}
+
+.message-status-income {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 100px;
+    background-color: #756ff1;
+    right: 0;
+    top:0;
+}
+
+.message-status-outcome {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 100px;
+    background-color: #fff;
+    left: 0;
+    top:0;
+}
+
+.c-chat-message p {
+    margin: 0;
+    padding: 2px 15px;
+}
+
+.c-incoming {
+    background-color:#fff; 
+    border-radius:100px; 
+    box-shadow: 6px 9px 12px -7px #999;
+    margin: 5px 0px 0px 32px;
+}
+
+.c-current {
+    background-color:#727273; 
+    border-radius:100px; 
+    box-shadow: -6px 9px 12px -7px #999;
+    color: #fff;
+    margin: 5px 32px 0px 0px; 
+}
+
+.c-outgoing {
+    background-color:#756ff1; 
+    border-radius:100px; 
+    box-shadow: -6px 9px 12px -7px #999;
+    color: #fff;
+    margin: 5px 32px 0px 0px;    
+}
+
+.m-sender-name {
+    color: #c5c3d7;
+    font-size: 10px;
+}
+
+.m-sender-time {
+    color: #c5c3d7;
+    font-size: 10px;
+    margin-left: 20px;
+}
+
+.message-income{
+    float:left;
+}
+
+.message-outgoing{
+    float:right;
+}

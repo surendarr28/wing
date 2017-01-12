@@ -42,6 +42,10 @@ export class Dashboard implements OnInit, OnDestroy {
     this.router.navigate(['/join', item.id]);
   }
 
+  goToChatRoom(){
+    this.router.navigate(['/chat']);
+  }
+
   ngOnDestroy() {
     console.log("disconn");
     this.socket.disconnect();
