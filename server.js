@@ -52,8 +52,8 @@ class Server {
     }
 
     listening() {
-        this.server.listen(8085, function () {
-            console.log('Listening on port ' + 8085);
+        this.server.listen(process.env.PORT || 8085, function () {
+            console.log('Listening on port ' + (process.env.PORT || 8085));
         });
     }
 
