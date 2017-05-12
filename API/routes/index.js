@@ -47,10 +47,10 @@ class Route {
             },
             {
                 id: 102,
-                gameid: 'focus',
+                gameid: 'car',
                 team: "Quick Play - Yellow",
                 members: "5",
-                gameName: "focusing the block",
+                gameName: "car",
                 gameCategory: "focus",
                 status: 1,
                 category: 1,
@@ -58,11 +58,11 @@ class Route {
             },
             {
                 id: 103,
-                gameid: 'uno',
+                gameid: 'dot',
                 team: "Quick Play - blue",
                 members: "5",
-                gameName: "focusing the block",
-                gameCategory: "focus",
+                gameName: "dot",
+                gameCategory: "Dot",
                 status: 1,
                 category: 1,
                 game: []
